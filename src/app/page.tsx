@@ -115,7 +115,7 @@ function Favorites() {
       <Reveal className="mx-auto mb-10 grid max-w-[1500px] gap-4 px-2 sm:px-4 lg:mb-14 lg:grid-cols-2 lg:items-end xl:px-8">
         <h2 className="display text-ink">Mis dos favoritas</h2>
         <p className="max-w-[34rem] font-serif text-xl leading-relaxed text-ink/80 lg:justify-self-end">
-          Dos pickups que me encanta enseñar. Una para el trabajo de todos los días, otra para cuando quieres todo. Las dos te esperan en piso.
+          Dos pickups que me encanta enseñar: una compacta para el día a día y una grande para cuando quieres todo. Las dos están en piso, listas para que las conozcas.
         </p>
       </Reveal>
 
@@ -124,13 +124,17 @@ function Favorites() {
           const light = f.theme === "light";
           return (
             <Reveal key={f.name} delay={i * 100}>
-              <article className={`grid h-full overflow-hidden rounded-3xl sm:grid-cols-[2fr_3fr] ${light ? "bg-gold text-ink" : "bg-navy text-white"}`}>
-                <div className="relative min-h-[17rem] sm:min-h-[26rem]">
+              <article
+                className={`grid h-full overflow-hidden rounded-3xl md:grid-cols-2 xl:grid-cols-1 xl:grid-rows-[auto_1fr] ${
+                  light ? "bg-gold text-ink" : "bg-navy text-white"
+                }`}
+              >
+                <div className="relative aspect-[6/5] md:aspect-auto md:min-h-[36rem] xl:aspect-[6/5] xl:min-h-0">
                   <Image
                     src={f.image}
-                    alt={f.name}
+                    alt={`${f.name} en el piso de la agencia`}
                     fill
-                    sizes="(min-width:1280px) 20vw, (min-width:640px) 40vw, 100vw"
+                    sizes="(min-width:768px) 50vw, 100vw"
                     className="object-cover"
                     style={{ objectPosition: f.focus }}
                   />
@@ -138,7 +142,15 @@ function Favorites() {
                 <div className="flex flex-col p-7 sm:p-10">
                   <h3 className="text-4xl font-400 leading-[1.05] tracking-[-0.02em] sm:text-[2.75rem]">{f.name}</h3>
                   <p className="mt-2 text-lg font-600">{f.kicker}</p>
-                  <p className={`mt-4 max-w-[30rem] font-serif text-lg leading-relaxed ${light ? "" : "text-white/85"}`}>{f.text}</p>
+                  <p className={`mt-4 max-w-[36rem] font-serif text-lg leading-relaxed ${light ? "" : "text-white/85"}`}>{f.text}</p>
+                  <dl className="mt-6 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-base">
+                    {f.specs.map(([label, value]) => (
+                      <div key={label} className="contents">
+                        <dt className="font-600">{label}</dt>
+                        <dd className={light ? "" : "text-white/85"}>{value}</dd>
+                      </div>
+                    ))}
+                  </dl>
                   <div className="mt-auto flex flex-wrap gap-3 pt-8">
                     <Cta href={wa(`Hola Daniela 👋, me interesa la ${f.name}. ¿Me das información y precio?`)} external variant={light ? "navy" : "gold"}>
                       Pregúntame por ella

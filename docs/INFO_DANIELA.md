@@ -82,3 +82,18 @@ En EE. UU. es común que cada vendedor tenga su página personal (ej. [Higher Tu
 6. **Reseñas** (Google/DealerRater) — ⚠️ ella aún no tiene; se pone un CTA "Deja tu reseña", sin inventar testimonios.
 7. **Botón "Save my contact"** (vCard) y **barra fija móvil** Llamar / WhatsApp.
 8. Toque personal (fotos, frase propia) — en su caso, sus ilustraciones pop-art.
+
+## 7. Camionetas destacadas en la web (actualizado 21-nov-2026)
+
+Las fotos son de las unidades en piso (`research/raw/montana_lt_2026_piso.jpg` y `cheyenne_high_country_piso.jpg`). Los datos técnicos los dio el cliente; lo marcado con ⚠️ no coincide con lo que se encontró en línea y conviene confirmarlo con la ficha oficial.
+
+| | Montana 2026 LT | Cheyenne High Country |
+|---|---|---|
+| Motor | 1.2 L turbo, 3 cilindros, 130 HP y 140 lb-pie | V8 Ecotec 6.2 L, 425 HP y 460 lb-pie |
+| Transmisión | Automática de 6 velocidades | Automática de 10 velocidades, palanca electrónica (ETRS) |
+| Tracción | Delantera | 4x4 |
+| Carga | 600 kg | 616 kg ⚠️ (my-car.mx indica 853 kg) |
+| Arrastre | 400 kg (sin confirmar en línea) | 4,218 kg ⚠️ (my-car.mx indica 4,173 kg) |
+| Otros | Caja Multi-Flex de 874 L; pantalla de 11" ⚠️ (Motorpasión México indica 8") | Tanque de 91 L |
+
+Complemento tomado de internet: la Montana trae seis bolsas de aire y Android Auto y Apple CarPlay inalámbricos ([Motorpasión](https://www.motorpasion.com.mx/industria/practica-pick-up-motor-turbo-600-kg-capacidad-carga-esta-basada-uno-suv-populares-mexico/amp)); la Cheyenne High Country trae asientos en piel con logo bordado, volante con calefacción y estribos retráctiles cromados ([my-car.mx](https://my-car.mx/auto/chevrolet-cheyenne)). También existe la Montana RS, más equipada.

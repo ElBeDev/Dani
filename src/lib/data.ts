@@ -40,26 +40,24 @@ export type Category = "Autos" | "SUVs" | "Pickups" | "Eléctricos";
 export type Model = {
   name: string;
   category: Category;
-  tagline: string;
-  image?: string;
-  badge?: string;
 };
 
 export const models: Model[] = [
-  { name: "S10 Max 2027", category: "Pickups", tagline: "Pickup mediana lista para trabajar y para el fin de semana.", image: "/img/s10-showroom.webp", badge: "Nueva" },
-  { name: "Silverado", category: "Pickups", tagline: "La pickup grande: potencia, espacio y presencia.", image: "/img/silverado-sunset.webp", badge: "Favorita" },
-  { name: "Montana", category: "Pickups", tagline: "Pickup compacta, práctica para la ciudad." },
-  { name: "Aveo", category: "Autos", tagline: "Sedán y hatchback económicos para tu día a día." },
-  { name: "Onix", category: "Autos", tagline: "Turbo, conectado y eficiente." },
-  { name: "Groove", category: "SUVs", tagline: "SUV compacta con mucho estilo por dentro y por fuera." },
-  { name: "Tracker", category: "SUVs", tagline: "SUV urbana turbo con tecnología de sobra." },
-  { name: "Captiva", category: "SUVs", tagline: "Hasta 7 pasajeros para toda la familia." },
-  { name: "Equinox", category: "SUVs", tagline: "SUV mediana cómoda para carretera." },
-  { name: "Tahoe", category: "SUVs", tagline: "SUV de lujo full-size, tamaño USA." },
-  { name: "Suburban", category: "SUVs", tagline: "El espacio más grande de Chevrolet." },
-  { name: "Spark EUV", category: "Eléctricos", tagline: "100% eléctrico, ideal para ciudad." },
-  { name: "Equinox EV", category: "Eléctricos", tagline: "SUV eléctrica con gran autonomía." },
-  { name: "Blazer EV", category: "Eléctricos", tagline: "Diseño deportivo y 100% eléctrica." },
+  { name: "Montana", category: "Pickups" },
+  { name: "S10 Max 2027", category: "Pickups" },
+  { name: "Silverado", category: "Pickups" },
+  { name: "Cheyenne", category: "Pickups" },
+  { name: "Aveo", category: "Autos" },
+  { name: "Onix", category: "Autos" },
+  { name: "Groove", category: "SUVs" },
+  { name: "Tracker", category: "SUVs" },
+  { name: "Captiva", category: "SUVs" },
+  { name: "Equinox", category: "SUVs" },
+  { name: "Tahoe", category: "SUVs" },
+  { name: "Suburban", category: "SUVs" },
+  { name: "Spark EUV", category: "Eléctricos" },
+  { name: "Equinox EV", category: "Eléctricos" },
+  { name: "Blazer EV", category: "Eléctricos" },
 ];
 
 export const steps = [
@@ -72,24 +70,41 @@ export const steps = [
 export const manifesto =
   "Soy tu **asesora**, tu **guía** y tu **aliada** para estrenar. Te escucho, te explico todo **claro** y busco el plan que de verdad te queda. Quiero que comprar tu auto se sienta tan bien como **estrenarlo**.";
 
+// Las dos pickups destacadas. Las fotos son de las unidades en piso en la agencia.
+// Los datos técnicos los dio Daniela; conviene revisarlos contra la ficha oficial cuando cambie el año modelo.
 export const favorites = [
   {
-    word: "s10",
-    name: "Chevrolet S10 Max 2027",
-    kicker: "Pickup mediana, modelo nuevo",
-    focus: "50% 72%",
-    text: "Fuerte para el trabajo y cómoda para el fin de semana. La tengo en piso para que la conozcas y la manejes.",
-    image: "/img/s10-showroom.webp",
+    name: "Chevrolet Montana 2026",
+    kicker: "Versión LT",
+    text: "Pickup compacta, fácil de manejar en ciudad y lista para cargar. Trae seis bolsas de aire y Android Auto y Apple CarPlay inalámbricos. Si quieres más equipo, también está la versión RS.",
+    image: "/img/montana-lt.webp",
+    focus: "50% 100%",
     theme: "light" as const,
+    specs: [
+      ["Motor", "1.2 L turbo de 3 cilindros, 130 HP y 140 lb-pie"],
+      ["Transmisión", "Automática de 6 velocidades"],
+      ["Tracción", "Delantera"],
+      ["Caja", "Multi-Flex de 874 litros"],
+      ["Carga", "Hasta 600 kg"],
+      ["Arrastre", "Hasta 400 kg"],
+      ["Pantalla", "Táctil de 11 pulgadas"],
+    ],
   },
   {
-    word: "silverado",
-    name: "Chevrolet Silverado",
-    kicker: "Pickup grande",
-    focus: "50% 62%",
-    text: "Potencia, espacio y presencia. La pickup que todos voltean a ver, con versiones para trabajo y para lujo.",
-    image: "/img/silverado-sunset.webp",
+    name: "Chevrolet Cheyenne High Country",
+    kicker: "Pickup grande, V8 y 4x4",
+    text: "La Cheyenne con el nivel de equipo High Country: asientos en piel con el logo bordado, volante con calefacción y estribos retráctiles cromados.",
+    image: "/img/cheyenne-high-country.webp",
+    focus: "50% 80%",
     theme: "dark" as const,
+    specs: [
+      ["Motor", "V8 Ecotec de 6.2 L, 425 HP y 460 lb-pie"],
+      ["Transmisión", "Automática de 10 velocidades con palanca electrónica"],
+      ["Tracción", "4x4"],
+      ["Arrastre", "Hasta 4,218 kg"],
+      ["Carga", "Hasta 616 kg"],
+      ["Tanque", "91 litros"],
+    ],
   },
 ];
 
