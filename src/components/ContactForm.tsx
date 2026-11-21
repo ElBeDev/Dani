@@ -15,16 +15,16 @@ export default function ContactForm() {
     const name = String(f.get("name") || "").trim();
     const model = String(f.get("model") || "");
     const msg = String(f.get("message") || "").trim();
-    const lines = [`Hola Daniela 👋, soy ${name || "un cliente"}.`, `Me interesa: ${reason}${model ? ` — ${model}` : ""}.`, msg].filter(Boolean);
+    const lines = [`Hola Daniela 👋, soy ${name || "un cliente"}.`, `Me interesa: ${reason}${model ? ` (${model})` : ""}.`, msg].filter(Boolean);
     window.open(wa(lines.join("\n")), "_blank", "noopener,noreferrer");
   }
 
-  const input = "w-full rounded-2xl bg-mist px-5 py-4 text-ink placeholder:text-ink/40 outline-none transition focus:bg-white focus:ring-2 focus:ring-navy";
+  const input = "w-full rounded-2xl bg-mist px-5 py-4 text-ink placeholder:text-ink/60 outline-none transition focus:bg-white focus:ring-2 focus:ring-navy";
 
   return (
     <form onSubmit={onSubmit} className="space-y-5">
       <fieldset>
-        <legend className="mb-3 text-sm font-600 text-ink/70">¿En qué te ayudo?</legend>
+        <legend className="mb-3 text-base font-600">¿En qué te ayudo?</legend>
         <div className="flex flex-wrap gap-2">
           {reasons.map((r) => (
             <button
@@ -32,7 +32,7 @@ export default function ContactForm() {
               key={r}
               onClick={() => setReason(r)}
               aria-pressed={reason === r}
-              className={`rounded-full px-4 py-2 text-sm font-600 transition ${reason === r ? "bg-navy text-white" : "bg-mist text-ink hover:bg-mist-2"}`}
+              className={`min-h-11 rounded-full px-4 text-base font-500 transition-colors ${reason === r ? "bg-navy text-white" : "bg-mist text-ink hover:bg-mist-2"}`}
             >
               {r}
             </button>
@@ -42,13 +42,13 @@ export default function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="block">
-          <span className="sr-only">Tu nombre</span>
-          <input name="name" required autoComplete="name" placeholder="Tu nombre" className={input} />
+          <span className="mb-2 block text-base font-600">Tu nombre</span>
+          <input name="name" required autoComplete="name" placeholder="¿Cómo te llamas?" className={input} />
         </label>
         <label className="block">
-          <span className="sr-only">Modelo de interés</span>
+          <span className="mb-2 block text-base font-600">Modelo de interés</span>
           <select name="model" defaultValue="" className={input}>
-            <option value="">Modelo: aún no sé</option>
+            <option value="">Aún no sé, recomiéndame</option>
             {models.map((m) => (
               <option key={m.name} value={m.name}>
                 {m.name}
@@ -59,14 +59,14 @@ export default function ContactForm() {
       </div>
 
       <label className="block">
-        <span className="sr-only">Mensaje</span>
-        <textarea name="message" rows={3} placeholder="Cuéntame qué buscas (opcional)" className={`${input} resize-none`} />
+        <span className="mb-2 block text-base font-600">Mensaje (opcional)</span>
+        <textarea name="message" rows={3} placeholder="Ej. Busco una SUV familiar y tengo un auto para dar a cuenta" className={`${input} resize-none`} />
       </label>
 
       <button type="submit" className="flex w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-4 text-base font-700 text-white transition hover:bg-navy-2">
         <WhatsApp className="h-5 w-5 text-gold" /> Enviar por WhatsApp
       </button>
-      <p className="text-center text-xs text-ink/60">Se abre WhatsApp con tu mensaje listo. Esta página no guarda tus datos.</p>
+      <p className="text-sm text-ink/75">Se abre WhatsApp con tu mensaje listo. Esta página no guarda tus datos.</p>
     </form>
   );
 }

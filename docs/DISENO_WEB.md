@@ -1,4 +1,4 @@
-# Diseño de la landing — v3 · "daniela." (layout Dawn + colores de agencia Chevrolet)
+# Diseño de la landing — v4 · "daniela." (layout Dawn + colores de agencia Chevrolet + guía Impeccable)
 
 > **v3 (20-nov-2026):** layout de [dawnsaunders.com](https://www.dawnsaunders.com/) con colores de agencia Chevrolet (azul marino + dorado + blanco).
 > La v1 (negro carbono + dorado, estilo concesionaria) quedó reemplazada.
@@ -41,6 +41,27 @@ Cambios de la v3:
 - La imagen para compartir en redes (`og.jpg`) ahora es su foto real en azul y dorado.
 
 Referencias: [Chevrolet Dealer Ad Guidelines](https://di-uploads-pod1.training.dealerinspire.com/prod-thedash/uploads/2022/09/Chevrolet_Dealer_Ad_Guidelines_US_PuertoRico_Only.pdf), [colores en sitios de agencias](https://www.autoxloo.com/blog/choose-a-right-color-for-your-dealer-website.html).
+
+## v4: pasada con la guía de Impeccable (impeccable.style)
+
+Se revisó la página contra su catálogo de señales de "diseño hecho por IA" y se quitó o rehízo lo que caía en él:
+
+| Señal del catálogo | Qué había | Qué quedó |
+|---|---|---|
+| Hero metric layout | Fila "14. 4. 1. 0." con etiquetas chicas | Eliminada |
+| Etiquetas numeradas | "01 / 02", "01 Pickups", números en FAQ y menú | Solo los 4 pasos llevan número, porque sí son una secuencia |
+| Rótulo arriba del título | "CONÓCEME", "FAQ", "PROMOCIONES DEL MES" | Eliminados; el título dice lo que hay |
+| Titular en cursiva serif | Una palabra en cursiva en cada titular | Titulares en una sola tipografía; el énfasis va en dorado sólido |
+| Marquee | Cinta de modelos que corría sola | Eliminada |
+| Halo, brillo, degradado | Brillo radial del hero, anillos, textura, dorado metálico | Azul y dorado sólidos |
+| Texto tapado | Palabra gigante debajo de la foto en "favoritas" | Tarjetas con foto a un lado y texto al otro |
+| Letras apretadas | Tracking de -0.045 a -0.055em | -0.025em en titulares, -0.04em en el nombre |
+| Gris sobre color, texto diminuto | Texto al 60-70% sobre dorado, notas de 12px | Texto sólido sobre dorado, mínimo 14px |
+| Contenido oculto por animación | Bloques invisibles hasta que corría el script | Visibles por defecto; la animación solo aplica si hay JavaScript |
+| Tarjetas dentro de tarjetas | Pasos como tarjetas dentro de una tarjeta | Lista ordenada sobre el fondo de la sección |
+| Copy | "Yo, no un robot.", "…no como un trámite" | Frases directas, sin contraste forzado |
+
+Otros cambios: lista de modelos como botones agrupados por tipo (sin líneas divisorias), FAQ en bloques, etiquetas visibles en el formulario, botones y links con área de toque de 44px o más, `text-wrap: balance` en titulares y foco visible para teclado.
 
 ## Tipografía
 

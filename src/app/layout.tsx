@@ -3,7 +3,7 @@ import { Figtree, Newsreader } from "next/font/google";
 import { advisor, fullAddress } from "@/lib/data";
 import "./globals.css";
 
-const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin"], weight: ["300", "400", "500", "600", "700", "800"] });
+const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"] });
 
 const title = `${advisor.name} | Asesora Chevrolet San Juan del Río`;
@@ -51,7 +51,11 @@ const jsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-MX" className={`${figtree.variable} ${newsreader.variable} antialiased`}>
+    <html lang="es-MX" className={`${figtree.variable} ${newsreader.variable} antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Marca que hay JavaScript: solo entonces se ocultan los bloques que entran con animación. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body className="min-h-screen font-sans">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         {children}

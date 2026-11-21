@@ -1,16 +1,15 @@
 @import "tailwindcss";
 
-/* Paleta de agencia Chevrolet: azul marino (confianza) + dorado del moño + blanco/gris + carbón */
+/* Paleta de agencia Chevrolet: azul marino + dorado + blanco/gris + carbón. Colores sólidos, sin degradados. */
 :root {
   --navy: #0b2545;
   --navy-2: #143560;
   --charcoal: #111418;
   --mist: #f3f5f8;
-  --mist-2: #e6eaf0;
+  --mist-2: #e3e8ef;
   --gold: #c9973a;
   --gold-2: #e3bb67;
-  --gold-deep: #b6862d;
-  --blue: #1f5fbf;
+  --gold-ink: #7a5a14; /* dorado oscuro para texto chico sobre fondo claro (contraste AA) */
   --ink: #0f1c2e;
 }
 
@@ -22,8 +21,7 @@
   --color-mist-2: var(--mist-2);
   --color-gold: var(--gold);
   --color-gold-2: var(--gold-2);
-  --color-gold-deep: var(--gold-deep);
-  --color-blue: var(--blue);
+  --color-gold-ink: var(--gold-ink);
   --color-ink: var(--ink);
   --font-sans: var(--font-figtree);
   --font-serif: var(--font-newsreader);
@@ -32,7 +30,6 @@
   --font-weight-500: 500;
   --font-weight-600: 600;
   --font-weight-700: 700;
-  --font-weight-800: 800;
 }
 
 html {
@@ -50,33 +47,31 @@ body {
   color: var(--ink);
 }
 
-/* Azul marino con un brillo suave, como showroom */
-.hero-bg {
-  background:
-    radial-gradient(ellipse 70% 60% at 50% 35%, #1b4278 0%, transparent 70%),
-    var(--navy);
+/* Titulares sin líneas huérfanas; párrafos sin palabra sola al final */
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+:focus-visible {
+  outline: 2px solid var(--gold-2);
+  outline-offset: 3px;
 }
 
-/* Dorado metálico del moño Chevrolet */
-.bg-gold-metal {
-  background: linear-gradient(180deg, #e3bb67 0%, #c9973a 50%, #a97c27 100%);
+/* Titular de sección */
+.display {
+  font-weight: 300;
+  font-size: clamp(2.6rem, 6.2vw, 5rem);
+  line-height: 1.03;
+  letter-spacing: -0.025em;
 }
 
-/* Palabra gigante tipo "dawn." */
+/* Nombre gigante del hero y del footer */
 .giant {
   font-weight: 300;
-  letter-spacing: -0.055em;
+  letter-spacing: -0.04em;
   line-height: 0.8;
 }
 
-.dot {
-  display: inline-block;
-  width: 0.2em;
-  height: 0.1em;
-  border-radius: 0.2em 0.2em 0 0;
-  background: var(--gold);
-  margin-left: 0.04em;
-}
+/* El punto dorado del nombre: círculo completo */
 .dot-round {
   display: inline-block;
   width: 0.16em;
@@ -86,27 +81,37 @@ body {
   margin-left: 0.05em;
 }
 
-/* Aparición al hacer scroll */
-.reveal {
+/* Entrada al hacer scroll. El contenido es visible por defecto; solo se anima si hay JavaScript. */
+.js .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
+
 @keyframes rise {
-  from { opacity: 0; transform: translateY(36px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: none; }
 }
-.reveal-now { animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.reveal-now { animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 
 @keyframes rise-photo {
-  from { opacity: 0; transform: translateY(60px) scale(0.97); }
+  from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: none; }
 }
-.rise-photo { animation: rise-photo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+.rise-photo { animation: rise-photo 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+
+@keyframes letter-rise {
+  from { opacity: 0; transform: translateY(0.3em); }
+  to { opacity: 1; transform: none; }
+}
+.letter {
+  display: inline-block;
+  animation: letter-rise 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
 
 /* Foto recortada: se desvanece hacia abajo para fundirse con el semicírculo */
 .fade-bottom {
@@ -114,21 +119,39 @@ body {
   mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
 }
 
-@utility vertical-label {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-}
-
 details > summary { list-style: none; }
 details > summary::-webkit-details-marker { display: none; }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .reveal-now, .rise-photo { animation: none; }
-  .reveal { opacity: 1; transform: none; transition: none; }
-  .manifesto span { opacity: 1 !important; }
+/* Sliders de la calculadora */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 1.75rem;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track { height: 4px; border-radius: 99px; background: var(--mist-2); }
+input[type="range"]::-moz-range-track { height: 4px; border-radius: 99px; background: var(--mist-2); }
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 4px solid #fff;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 4px solid #fff;
 }
 
-input[type="range"] {
-  accent-color: var(--navy);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-now, .rise-photo, .letter { animation: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .manifesto span { opacity: 1 !important; }
 }

@@ -70,13 +70,14 @@ export const steps = [
 ];
 
 export const manifesto =
-  "Soy tu **asesora**, tu **guía** y tu **aliada** para estrenar. Te escucho, te explico todo **claro** y busco el plan que de verdad te queda. Porque comprar un auto debe sentirse como **estrenar**, no como un trámite.";
+  "Soy tu **asesora**, tu **guía** y tu **aliada** para estrenar. Te escucho, te explico todo **claro** y busco el plan que de verdad te queda. Quiero que comprar tu auto se sienta tan bien como **estrenarlo**.";
 
 export const favorites = [
   {
     word: "s10",
     name: "Chevrolet S10 Max 2027",
-    kicker: "Pickup mediana · Nueva",
+    kicker: "Pickup mediana, modelo nuevo",
+    focus: "50% 72%",
     text: "Fuerte para el trabajo y cómoda para el fin de semana. La tengo en piso para que la conozcas y la manejes.",
     image: "/img/s10-showroom.webp",
     theme: "light" as const,
@@ -84,7 +85,8 @@ export const favorites = [
   {
     word: "silverado",
     name: "Chevrolet Silverado",
-    kicker: "Pickup grande · La favorita",
+    kicker: "Pickup grande",
+    focus: "50% 62%",
     text: "Potencia, espacio y presencia. La pickup que todos voltean a ver, con versiones para trabajo y para lujo.",
     image: "/img/silverado-sunset.webp",
     theme: "dark" as const,
