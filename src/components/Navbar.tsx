@@ -14,8 +14,7 @@ const links = [
 export function Logo({ className = "" }: { className?: string }) {
   return (
     <span className={`text-2xl tracking-[-0.02em] ${className}`}>
-      <span className="font-700">daniela</span>
-      <span className="font-400">herrera</span>
+      <span className="font-700">Daniela</span> <span className="font-400">Herrera</span>
       <span className="dot-round" />
     </span>
   );

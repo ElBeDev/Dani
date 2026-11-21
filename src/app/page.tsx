@@ -41,7 +41,7 @@ function Hero() {
             {advisor.name}, {advisor.role} en {advisor.dealer}
           </span>
           <span aria-hidden className="giant block whitespace-nowrap text-[27vw] lg:text-[clamp(10rem,20.5vw,20.5rem)]">
-            {"daniela".split("").map((l, i) => (
+            {"Daniela".split("").map((l, i) => (
               <span key={i} className="letter" style={{ animationDelay: `${i * 50}ms` }}>
                 {l}
               </span>
