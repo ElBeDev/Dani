@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
+/* Paleta de agencia Chevrolet: azul marino (confianza) + dorado del moño + blanco/gris + carbón */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #0b2545;
+  --navy-2: #143560;
+  --charcoal: #111418;
+  --mist: #f3f5f8;
+  --mist-2: #e6eaf0;
+  --gold: #c9973a;
+  --gold-2: #e3bb67;
+  --gold-deep: #b6862d;
+  --blue: #1f5fbf;
+  --ink: #0f1c2e;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
+  --color-charcoal: var(--charcoal);
+  --color-mist: var(--mist);
+  --color-mist-2: var(--mist-2);
+  --color-gold: var(--gold);
+  --color-gold-2: var(--gold-2);
+  --color-gold-deep: var(--gold-deep);
+  --color-blue: var(--blue);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-figtree);
+  --font-serif: var(--font-newsreader);
+  --font-weight-300: 300;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+  --font-weight-800: 800;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--charcoal);
+  color: var(--ink);
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Azul marino con un brillo suave, como showroom */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 35%, #1b4278 0%, transparent 70%),
+    var(--navy);
+}
+
+/* Dorado metálico del moño Chevrolet */
+.bg-gold-metal {
+  background: linear-gradient(180deg, #e3bb67 0%, #c9973a 50%, #a97c27 100%);
+}
+
+/* Palabra gigante tipo "dawn." */
+.giant {
+  font-weight: 300;
+  letter-spacing: -0.055em;
+  line-height: 0.8;
+}
+
+.dot {
+  display: inline-block;
+  width: 0.2em;
+  height: 0.1em;
+  border-radius: 0.2em 0.2em 0 0;
+  background: var(--gold);
+  margin-left: 0.04em;
+}
+.dot-round {
+  display: inline-block;
+  width: 0.16em;
+  height: 0.16em;
+  border-radius: 999px;
+  background: var(--gold);
+  margin-left: 0.05em;
+}
+
+/* Aparición al hacer scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: none; }
+}
+.reveal-now { animation: rise 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+
+@keyframes rise-photo {
+  from { opacity: 0; transform: translateY(60px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.rise-photo { animation: rise-photo 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s both; }
+
+/* Foto recortada: se desvanece hacia abajo para fundirse con el semicírculo */
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
+}
+
+@utility vertical-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-now, .rise-photo { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .manifesto span { opacity: 1 !important; }
+}
+
+input[type="range"] {
+  accent-color: var(--navy);
 }
