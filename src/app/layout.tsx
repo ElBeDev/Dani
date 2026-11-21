@@ -6,12 +6,15 @@ import "./globals.css";
 const figtree = Figtree({ variable: "--font-figtree", subsets: ["latin"], weight: ["300", "400", "500", "600", "700"] });
 const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"] });
 
+// En Vercel se usa el dominio real del proyecto, para que la imagen al compartir apunte al sitio correcto.
+const siteOrigin = process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : advisor.siteUrl;
+
 const title = `${advisor.name} | Asesora Chevrolet San Juan del Río`;
 const description =
   "Tu asesora Chevrolet de confianza en San Juan del Río, Querétaro. Autos, SUVs y pickups nuevas, prueba de manejo, financiamiento y tu auto a cuenta. Escríbeme por WhatsApp.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(advisor.siteUrl),
+  metadataBase: new URL(siteOrigin),
   title,
   description,
   openGraph: {

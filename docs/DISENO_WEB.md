@@ -71,7 +71,7 @@ Otros cambios: lista de modelos como botones agrupados por tipo (sin líneas div
 ## Fotos
 
 - `daniela-cutout.webp`: foto real (avatar de TikTok) **sin fondo**, recortada con Vision de macOS. La parte de arriba del pelo estaba cortada en el original y se reconstruyó.
-- `duo-cutout.webp`: su ilustración con su compañero, sin fondo. **Ya no se usa en la v3.**
+- Las ilustraciones pop-art de sus redes ya no se usan en ningún lado: ni en la página, ni en el icono, ni en la imagen para compartir.
 - `s10-showroom.webp`, `silverado-sunset.webp`, `agencia-fachada.webp`: de su Instagram.
 
 ## Secciones (orden)

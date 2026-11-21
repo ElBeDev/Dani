@@ -56,7 +56,7 @@
 | `grid_7_640x1136.jpg` | Compañero en showroom → (no usar como foto de Daniela) |
 | `grid_6`, `grid_9` | Portadas negras/borrosas → descartadas |
 
-> Nota: el hombre que aparece en las ilustraciones es un compañero; no se le nombra en la web.
+> Nota: las ilustraciones pop-art (donde sale con un compañero) **no se usan en la web**: ni en la página, ni en el icono, ni al compartir. Solo se usa su foto real y las fotos de la agencia y los autos.
 > La foto real de Daniela sale del flyer (521×784 px). **Una foto suya en mejor resolución mejoraría mucho el hero.**
 
 ## 5. Datos de la marca / agencia
